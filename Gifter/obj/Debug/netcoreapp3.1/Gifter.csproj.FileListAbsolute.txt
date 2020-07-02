@@ -149,6 +149,6 @@ C:\Users\Crystal Elsey\workspace\Projects\Gifter\Gifter\obj\Debug\netcoreapp3.1\
 C:\Users\Crystal Elsey\workspace\Projects\Gifter\Gifter\obj\Debug\netcoreapp3.1\Gifter.dll
 C:\Users\Crystal Elsey\workspace\Projects\Gifter\Gifter\obj\Debug\netcoreapp3.1\Gifter.pdb
 C:\Users\Crystal Elsey\workspace\Projects\Gifter\Gifter\obj\Debug\netcoreapp3.1\Gifter.genruntimeconfig.cache
-C:\Users\Crystal Elsey\workspace\Projects\Gifter\Gifter\bin\Debug\netcoreapp3.1\Client\gifter-client-side\package-lock.json
-C:\Users\Crystal Elsey\workspace\Projects\Gifter\Gifter\bin\Debug\netcoreapp3.1\Client\gifter-client-side\package.json
-C:\Users\Crystal Elsey\workspace\Projects\Gifter\Gifter\bin\Debug\netcoreapp3.1\Client\gifter-client-side\public\manifest.json
+C:\Users\Crystal Elsey\workspace\Projects\Gifter\Gifter\bin\Debug\netcoreapp3.1\Client\package-lock.json
+C:\Users\Crystal Elsey\workspace\Projects\Gifter\Gifter\bin\Debug\netcoreapp3.1\Client\package.json
+C:\Users\Crystal Elsey\workspace\Projects\Gifter\Gifter\bin\Debug\netcoreapp3.1\Client\public\manifest.json
