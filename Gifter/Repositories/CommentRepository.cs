@@ -15,14 +15,27 @@ namespace Gifter.Repositories
             _context = context;
         }
 
-        public Comment GetById(int id)
+        public List<Comment> GetAll()
         {
-            return _context.Comment.Include(c => c.PostId).FirstOrDefault(c => c.Id == id);
+            return _context.Comment
+                .Include(c => c.Post)
+                .Include(c => c.UserProfile)
+                .ToList();
         }
 
-        public List<Comment> GetCommentsByPostId(int id)
+        public Comment GetById(int id)
         {
-            return _context.Comment.Include(c => c.PostId)
+            return _context.Comment
+                .Include(c => c.Post)
+                .Include(c => c.UserProfile)
+                .FirstOrDefault(c => c.Id == id);
+        }
+
+        public List<Comment> GetByPostId(int id)
+        {
+            return _context.Comment
+                .Include(c => c.Post)
+                .Include(c => c.UserProfile)
                 .Where(c => c.PostId == id)
                 .ToList();
         }

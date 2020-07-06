@@ -1,45 +1,24 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
-import { PostContext } from "../providers/PostProvider";
+import { PostContext } from "../../providers/PostProvider";
 import { Button } from "reactstrap"
 
 export const PostForm = ({ post }) => {
 
-    const { posts, addPost } = useContext(PostContext)
-    const [currentPostId, setCurrentPostId] = useState()
+    const { addPost } = useContext(PostContext)
+
     const Title = useRef()
     const ImageUrl = useRef()
     const Caption = useRef()
 
-    useEffect(() => {
-        addNewPost()
-    }, [])
-
-    const addNewPost = () => {
-        posts.map((post) => {
-            const newPost = {
-                Id: currentPostId,
-                Title: post.Title,
-                ImageUrl: post.ImageUrl,
-                Caption: post.Caption,
-                // DateCreated: post.DateCreated,
-                // UserProfileId: parseInt(UserProfileId)
-            }
-            addNewPost(newPost)
-        })
-    }
-
     const constructNewPost = () => {
-        addPost({
+        const newPost = {
             Title: Title,
             ImageUrl: ImageUrl,
             Caption: Caption,
             // DateCreated: DateCreated,
             // UserProfileId: parseInt(UserProfileId)           
-        })
-        .then((res) => {
-            setCurrentPostId(res.id)
-        })            
-        .then(post.toggler)
+        } 
+        return addPost(newPost)
     }    
 
     return (
