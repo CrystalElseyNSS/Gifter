@@ -1,22 +1,23 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, { useContext, useRef } from "react";
 import { PostContext } from "../../providers/PostProvider";
-import { Button } from "reactstrap"
+import { Button } from "reactstrap";
 
 export const PostForm = ({ post }) => {
 
     const { addPost } = useContext(PostContext)
 
-    const Title = useRef()
-    const ImageUrl = useRef()
-    const Caption = useRef()
+    const title = useRef()
+    const imageUrl = useRef()
+    const caption = useRef()
+    const userId = useRef()
 
     const constructNewPost = () => {
         const newPost = {
-            Title: Title,
-            ImageUrl: ImageUrl,
-            Caption: Caption,
-            // DateCreated: DateCreated,
-            // UserProfileId: parseInt(UserProfileId)           
+            title: title.current.value,
+            imageUrl: imageUrl.current.value,
+            caption: caption.current.value,
+            userProfileId: parseInt(userId.current.value), 
+            dateCreated: new Date()        
         } 
         return addPost(newPost)
     }    
@@ -29,7 +30,7 @@ export const PostForm = ({ post }) => {
                     <input
                         autoFocus
                         type="text"
-                        ref={Title}
+                        ref={title}
                         required
                     />
                 </fieldset>
@@ -38,7 +39,7 @@ export const PostForm = ({ post }) => {
                     <label htmlFor="post--image">Image URL:</label>
                     <input
                         type="text"
-                        ref={ImageUrl}
+                        ref={imageUrl}
                         required
                     />
                 </fieldset>
@@ -47,9 +48,17 @@ export const PostForm = ({ post }) => {
                     <label htmlFor="post--caption">Caption:</label>
                     <input
                         type="text"
-                        ref={Caption}
+                        ref={caption}
                         required
                     />
+                </fieldset>
+
+                <fieldset>
+                    <label htmlFor="newUserId">User Profile Id: </label>
+                    <input 
+                        type="number" 
+                        ref={userId}
+                        required />
                 </fieldset>
 
                 <div className="form--field">

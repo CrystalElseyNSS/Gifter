@@ -18,8 +18,8 @@ const Post = ({ post }) => {
         <h4>Comments:</h4>
         <div>
           {
-            post.comments.map(comment => {
-              return <Comment comment={comment} />
+            post.comments.map(comm => {
+              return <Comment comment={comm} key={comm.id} />
             })
           }
       </div>
