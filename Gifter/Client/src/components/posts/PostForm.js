@@ -1,11 +1,12 @@
 import React, { useContext, useRef } from "react";
 import { PostContext } from "../../providers/PostProvider";
 import { Button } from "reactstrap";
+import { useHistory } from "react-router-dom";
 
 export const PostForm = ({ post }) => {
 
     const { addPost } = useContext(PostContext)
-
+    const history = useHistory();
     const title = useRef()
     const imageUrl = useRef()
     const caption = useRef()
@@ -19,51 +20,66 @@ export const PostForm = ({ post }) => {
             userProfileId: parseInt(userId.current.value), 
             dateCreated: new Date()        
         } 
-        return addPost(newPost)
+        return addPost(newPost).then((p) => {
+            history.push("/");
+        })
     }    
 
     return (
         <>
+            <h3 className="m-5">New Post:</h3>
             <form>
-                <fieldset>
-                    <label htmlFor="post--title">Title:</label>
-                    <input
-                        autoFocus
-                        type="text"
-                        ref={title}
-                        required
-                    />
-                </fieldset>
-
-                <fieldset>
-                    <label htmlFor="post--image">Image URL:</label>
-                    <input
-                        type="text"
-                        ref={imageUrl}
-                        required
-                    />
-                </fieldset>
-
-                <fieldset>
-                    <label htmlFor="post--caption">Caption:</label>
-                    <input
-                        type="text"
-                        ref={caption}
-                        required
-                    />
-                </fieldset>
-
-                <fieldset>
-                    <label htmlFor="newUserId">User Profile Id: </label>
-                    <input 
-                        type="number" 
-                        ref={userId}
-                        required />
-                </fieldset>
-
-                <div className="form--field">
+                <div className="row m-5 form-group justify-content-between">
+                    <div className="col">
+                        <fieldset>
+                            <input 
+                                autoFocus
+                                type="text" 
+                                ref={title}
+                                className="form-control" 
+                                placeholder="Title" 
+                                required
+                            />
+                        </fieldset>
+                    </div>
+                    <div className="col">
+                        <fieldset>
+                            <input 
+                                type="text" 
+                                ref={caption}
+                                className="form-control" 
+                                placeholder="Caption" 
+                                required
+                            />
+                        </fieldset>
+                    </div>
+                </div>
+                <div className="row m-5 form-group justify-content-between">
+                    <div className="col">
+                        <fieldset>        
+                            <input 
+                                type="text" 
+                                ref={imageUrl}
+                                className="form-control" 
+                                placeholder="Image URL" 
+                                required                                
+                            />
+                        </fieldset>
+                    </div>
+                    <div className="col">
+                        <fieldset>                             
+                            <input 
+                                type="number" 
+                                ref={userId}
+                                className="form-control"
+                                placeholder="User Id"
+                                required 
+                            />
+                        </fieldset>
+                    </div>
+                </div>
+                <div className="form--field mt-5">
                     <Button 
-                        id="post--submit"
                         type="submit" 
                         color="info" 
                         size="sm"  
@@ -75,7 +91,6 @@ export const PostForm = ({ post }) => {
                         Submit
                     </Button>
                 </div>  
-
             </form>
         </>  
     )

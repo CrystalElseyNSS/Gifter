@@ -5,10 +5,12 @@ using System.Threading.Tasks;
 using Gifter.Data;
 using Gifter.Models;
 using Gifter.Repositories;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Gifter.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class UserProfileController : ControllerBase
@@ -26,7 +28,7 @@ namespace Gifter.Controllers
         }
 
         [HttpGet("{id}")]
-        public IActionResult Get(int id)
+        public IActionResult GetByUserId(int id)
         {
             var userProfile = _userProfileRepo.GetById(id);
             if (userProfile == null)
@@ -34,6 +36,17 @@ namespace Gifter.Controllers
                 return NotFound();
             }
             return Ok(userProfile);
+        }
+
+        [HttpGet("{id}")]
+        public IActionResult GetByFirebaseId(int firebaseId)
+        {
+            var firebaseUser = _userProfileRepo.GetById(firebaseId);
+            if (firebaseUser == null)
+            {
+                return NotFound();
+            }
+            return Ok(firebaseUser);
         }
 
         [HttpPost]
