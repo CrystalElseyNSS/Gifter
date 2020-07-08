@@ -4,6 +4,8 @@ import PostList from "./posts/PostList";
 import { PostForm } from "./posts/PostForm";
 import PostSearch from "./posts/PostSearch";
 import { UserProfileContext } from "../providers/UserProfileProvider";
+import Login from "./auth/Login";
+import Register from "./auth/Register";
 
 const ApplicationViews = () => {
   const { isLoggedIn } = useContext(UserProfileContext);
@@ -18,6 +20,14 @@ const ApplicationViews = () => {
       </Route>
 
       <Route path="/posts/:id">{/* TODO: Post Details Component */}</Route>
+
+      <Route path="/login">
+        <Login />
+      </Route>
+
+      <Route path="/register">
+        <Register />
+      </Route>
     </Switch>
   );
 };

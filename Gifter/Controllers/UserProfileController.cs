@@ -28,20 +28,9 @@ namespace Gifter.Controllers
         }
 
         [HttpGet("{id}")]
-        public IActionResult GetByUserId(int id)
+        public IActionResult GetByFirebaseId(string firebaseId)
         {
-            var userProfile = _userProfileRepo.GetById(id);
-            if (userProfile == null)
-            {
-                return NotFound();
-            }
-            return Ok(userProfile);
-        }
-
-        [HttpGet("{id}")]
-        public IActionResult GetByFirebaseId(int firebaseId)
-        {
-            var firebaseUser = _userProfileRepo.GetById(firebaseId);
+            var firebaseUser = _userProfileRepo.GetByFirebaseUserId(firebaseId);
             if (firebaseUser == null)
             {
                 return NotFound();
@@ -68,9 +57,9 @@ namespace Gifter.Controllers
         }
 
         [HttpDelete("{id}")]
-        public IActionResult Delete(int id)
+        public IActionResult Delete(string firebaseId)
         {
-            _userProfileRepo.Delete(id);
+            _userProfileRepo.Delete(firebaseId);
             return NoContent();
         }
     }
