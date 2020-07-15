@@ -53,10 +53,22 @@ namespace Gifter.Repositories
 
         public void Delete(int id)
         {
+            // Remove related comments first
+            var relatedComments = _context.Comment.Where(c => c.PostId == id);
+            _context.Comment.RemoveRange(relatedComments);
+
             var post = GetById(id);
             _context.Post.Remove(post);
             _context.SaveChanges();
         }
+
+
+        //public void Delete(int id)
+        //{
+        //    var post = GetById(id);
+        //    _context.Post.Remove(post);
+        //    _context.SaveChanges();
+        //}
 
         public List<Post> Search(string criterion, bool sortDescending)
         {

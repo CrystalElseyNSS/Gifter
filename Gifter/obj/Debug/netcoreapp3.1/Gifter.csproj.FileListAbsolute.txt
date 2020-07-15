@@ -137,7 +137,6 @@ C:\Users\Crystal Elsey\workspace\Projects\Gifter\Gifter\bin\Debug\netcoreapp3.1\
 C:\Users\Crystal Elsey\workspace\Projects\Gifter\Gifter\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\Crystal Elsey\workspace\Projects\Gifter\Gifter\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\Crystal Elsey\workspace\Projects\Gifter\Gifter\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\Crystal Elsey\workspace\Projects\Gifter\Gifter\obj\Debug\netcoreapp3.1\Gifter.csprojAssemblyReference.cache
 C:\Users\Crystal Elsey\workspace\Projects\Gifter\Gifter\obj\Debug\netcoreapp3.1\Gifter.AssemblyInfoInputs.cache
 C:\Users\Crystal Elsey\workspace\Projects\Gifter\Gifter\obj\Debug\netcoreapp3.1\Gifter.AssemblyInfo.cs
 C:\Users\Crystal Elsey\workspace\Projects\Gifter\Gifter\obj\Debug\netcoreapp3.1\Gifter.RazorTargetAssemblyInfo.cache
